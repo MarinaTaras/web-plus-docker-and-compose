@@ -5,7 +5,7 @@ RUN npm i --omit=dev --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-FROM nginx:latest AS frontend
+FROM nginx:1.23.1-alpine AS frontend
 COPY --from=builder /app/build /usr/share/nginx/html
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d
 EXPOSE 80

@@ -6,37 +6,40 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: backend-dev
     networks:
       - backend  
-    env_file: ./backend/.env
+    env_file: .env
     restart: unless-stopped
     ports:
       - 4005:3005
     depends_on:
       - postgres
 
-  postgres:
-    container_name: postgres
-    image: postgres:12-alpine
-    networks:
-      - backend
-    restart: unless-stopped
-    ports:
-      - 5432:5432
-    env_file: ./backend/.env
-    volumes:
-     - postgres_data:/data/postgres
-
   frontend:
     container_name: 'frontend'
     build:
       context: frontend
       dockerfile: Dockerfile
+    image: frontend-dev
     restart: unless-stopped  
     ports:
       - 8081:80
     networks:
       - frontend
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    networks:
+      - backend
+    restart: always
+    env_file: ./backend/.env
+    volumes:
+     - postgres_data:/data/postgres
+    
+
+  
 
 volumes:
   postgres_data:
