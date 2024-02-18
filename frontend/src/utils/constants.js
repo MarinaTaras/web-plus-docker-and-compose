@@ -1,4 +1,4 @@
-export const URL = "http://api.kpdmarina.nomoredomainsmonster.ru"; //задаю адрес бекэнда
+export const URL = "https://api.kpdmarina.nomoredomainsmonster.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;

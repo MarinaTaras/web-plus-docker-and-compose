@@ -17,6 +17,6 @@ async function bootstrap() {
   // Для валидации данных от клиента в DTO добавим глобальный пайплайн валидации на следующей строке
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
-  await app.listen(3001);
+  await app.listen(3005);
 }
 bootstrap();

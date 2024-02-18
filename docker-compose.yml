@@ -24,7 +24,7 @@ services:
     image: frontend-dev
     restart: unless-stopped  
     ports:
-      - 8081:80
+      - 8080:80
     networks:
       - frontend
 
@@ -34,11 +34,18 @@ services:
     networks:
       - backend
     restart: always
-    env_file: ./backend/.env
+    env_file: .env
     volumes:
      - postgres_data:/data/postgres
     
-  
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    networks:
+      - backend 
 
 volumes:
   postgres_data:
