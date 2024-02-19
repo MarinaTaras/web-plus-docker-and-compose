@@ -1,4 +1,4 @@
-export const URL = "https://Localhost:4005";
+export const URL = "https://api.kpdmarina.nomoredomainsmonster.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
