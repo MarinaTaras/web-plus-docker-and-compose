@@ -6,6 +6,7 @@ import { UpdateWishlistDto } from './dto/update-wishlist.dto';
 import { Wishlist } from './entities/wishlist.entity';
 import { WishesService } from 'src/wishes/wishes.service';
 import { User } from 'src/users/entities/user.entity';
+import { log } from 'console';
 
 @Injectable()
 export class WishlistsService {
@@ -19,6 +20,7 @@ export class WishlistsService {
     createWishlistDto: CreateWishlistDto,
     owner: User,
   ): Promise<Wishlist> {
+    console.log('createWishlistDto', createWishlistDto)
     const { items } = createWishlistDto;
     const wishes = items.map((id) => {
       return this.wishesService.findOne(id);
